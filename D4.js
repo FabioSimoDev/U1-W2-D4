@@ -40,10 +40,7 @@ console.log("differenza assoluta tra 18 e 19: ", crazyDiff(18));
 */
 
 const boundary = function(n) {
-  if ((n >= 20 && n <= 100) || n === 400) {
-    return true;
-  }
-  return false;
+  return (n >= 20 && n <= 100) || n === 400;
 };
 console.log(boundary(35) ? "è incluso" : "non incluso");
 
