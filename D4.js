@@ -165,7 +165,7 @@ const checkArray = function(nArray) {
       console.log(nArray[i] + " è maggiore di 5");
       sum += nArray[i];
     } else {
-      console.log(nArray[i] + " è maggiore di 5");
+      console.log(nArray[i] + " è munore di 5");
     }
   }
   return sum;
@@ -370,13 +370,40 @@ console.log("la stringa più lunga è: ", longest(stringArray));
  La funzione deve ritornare true se "emailContent" non contiene le parole "SPAM" o "SCAM".
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const antiSpam = function(emailContent){
+  const bannedWords = ["SPAM", "SCAM"];
+  
+  for (const word of bannedWords) {
+    if (emailContent.toUpperCase().includes(word)) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+const email1 = "Questo è un'email legittima";
+const email2 = "Contiene SPAM, evitalo";
+
+console.log(antiSpam(email1)); 
+console.log(antiSpam(email2)); 
 
 /* EXTRA 10
  Scrivi una funzione che riceve una data come parametro, e calcola il numero di giorni passati da quella data.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const dayPassed = function(date){
+  const today = new Date();
+  const startDate = new Date(date);
+  
+  const millisecondsDifference = today - startDate;
+  const millisecondInADay = 24 * 60 * 60 * 1000;
+  
+  const dayPassed = Math.floor(millisecondsDifference / millisecondInADay);
+  
+  return dayPassed;
+}
+const startDate = new Date('2022-01-01');
+console.log("sono passati ", dayPassed(startDate), " dalla data iniziale");
 
 /* EXTRA 11
  Scrivi una funzione chiamata "matrixGenerator" che riceve come parametri due numeri interi, "x" e "y".
@@ -386,4 +413,17 @@ console.log("la stringa più lunga è: ", longest(stringArray));
  "10","11","12"]
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const matrixGenerator = function(x, y){
+  const matrix = [];
+
+  for (let i = 0; i < x; i++) {
+    const row = [];
+    for (let j = 0; j < y; j++) {
+      row.push(i.toString() + j.toString());
+    }
+    matrix.push(row);
+  }
+
+  return matrix;
+}
+console.log(matrixGenerator(4, 4));
